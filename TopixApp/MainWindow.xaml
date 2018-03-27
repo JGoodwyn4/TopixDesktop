@@ -34,7 +34,7 @@
                     
                 </StackPanel>
             </DockPanel>
-            <Button Grid.Column="1" Content=">"/>
+            <Button Name="Button1" Grid.Column="1" Content=">" Click="Button_Click"/>
             <Button Grid.Column="1" Content="[" Visibility="Hidden"/>
         </Grid>
 

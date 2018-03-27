@@ -1,0 +1,86 @@
+﻿<Window x:Class="TopixApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TopixApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="731" Width="411">
+
+    <Window.Resources>
+        <Storyboard x:Key="slideOut">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-250,0,0,0" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:1"/>
+        </Storyboard>
+
+        <Storyboard x:Key="slideIn">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-250,0,0,0" AccelerationRatio="0.9" Duration="0:0:1"/>
+        </Storyboard>
+    </Window.Resources>
+    
+    <Grid>
+
+        <Grid Panel.ZIndex="1000" Margin="-250,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <DockPanel Grid.Column="0" Background="SlateGray">
+                <Label DockPanel.Dock="Top" Content="Topix" Height="100" Background="AliceBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <StackPanel Orientation="Vertical">
+                    
+                </StackPanel>
+            </DockPanel>
+            <Button Grid.Column="1" Content=">"/>
+            <Button Grid.Column="1" Content="[" Visibility="Hidden"/>
+        </Grid>
+
+        <Grid Background="Beige" Margin="20,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="225"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Username, Etc here" Grid.Row="0"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <DockPanel Grid.Column="0">
+                    <Label DockPanel.Dock="Top" Content="Topix" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                    <ListView>
+                        
+                    </ListView>
+                </DockPanel>
+
+                <DockPanel Grid.Column="1">
+                    <Label DockPanel.Dock="Top" Content="Friends" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                    <ListView>
+
+                    </ListView>
+                </DockPanel>
+            </Grid>
+
+            <DockPanel Grid.Row="2">
+                <Label DockPanel.Dock="Top" Content="Events" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                <ListView>
+                    <GridView.ColumnCollection>
+
+                    </GridView.ColumnCollection>
+                </ListView>
+            </DockPanel>
+            
+        </Grid>
+        
+    </Grid>
+</Window>

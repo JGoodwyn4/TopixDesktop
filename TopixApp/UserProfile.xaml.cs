@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace TopixApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserProfile.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserProfile : Page
     {
-        public MainWindow()
+        public UserProfile()
         {
             InitializeComponent();
-
-            ContentDisplay.Content = new UserProfile();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

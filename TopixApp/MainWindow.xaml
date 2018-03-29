@@ -21,19 +21,22 @@
 
         <Grid Panel.ZIndex="1000" Margin="-250,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="250"/> <!-- Menu width. Equal to navigation margin size -->
+                <ColumnDefinition Width="20"/> <!-- Button width. Equal to frame margin size -->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
+            <!-- Side menu/navigation -->
             <DockPanel Grid.Column="0" Background="SlateGray">
                 <Label DockPanel.Dock="Top" Content="Topix" Height="100" Background="AliceBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <StackPanel Orientation="Vertical">
                     
                 </StackPanel>
             </DockPanel>
+            
+            <!-- Open/Close Menu Buttons -->
             <Button Name="Button1" Grid.Column="1" Content=">" Click="Button_Click"/>
             <Button Grid.Column="1" Content="[" Visibility="Hidden"/>
         </Grid>

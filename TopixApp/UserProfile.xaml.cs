@@ -24,5 +24,10 @@ namespace TopixApp
         {
             InitializeComponent();
         }
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

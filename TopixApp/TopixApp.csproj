@@ -146,5 +146,8 @@
     <Resource Include="NavIcons\Search.png" />
     <Resource Include="NavIcons\Settings.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Placeholder Images\profile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TopixApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="731" Width="411">
+        Title="MainWindow" Height="800" Width="900">
 
     <Window.Resources>
         <Storyboard x:Key="slideOut">
-            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-250,0,0,0" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:1"/>
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-275,0,0,0" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:1"/>
         </Storyboard>
 
         <Storyboard x:Key="slideIn">
-            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-250,0,0,0" AccelerationRatio="0.9" Duration="0:0:1"/>
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-275,0,0,0" AccelerationRatio="0.9" Duration="0:0:1"/>
         </Storyboard>
     </Window.Resources>
     
     <Grid>
 
-        <Grid Name="navBar" Panel.ZIndex="1000" Margin="-250,0,0,0">
+        <Grid Name="navBar" Panel.ZIndex="1000" Margin="-275,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/> <!-- Menu width. Equal to navigation margin size -->
+                <ColumnDefinition Width="275"/> <!-- Menu width. Equal to navigation margin size -->
                 <ColumnDefinition Width="20"/> <!-- Button width. Equal to frame margin size -->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -34,20 +34,20 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
                     </Grid.RowDefinitions>
 
 
                     <Button Grid.Row="0" Background="#cccccc" Margin="0,0,0,2.5" Click="ProfileNav_Click">
                         <DockPanel Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
-                            <Image x:Name="ProfileTabImage" DockPanel.Dock="Right" Width="60" Source="{Binding}"/>
+                            <Image x:Name="ProfileTabImage" DockPanel.Dock="Right" Width="70" Source="/Placeholder Images/profile.png"/>
                             <Label Content="Profile" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         </DockPanel>
                     </Button>

@@ -137,5 +137,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NavIcons\Events.png" />
+    <Resource Include="NavIcons\Topix.png" />
+    <Resource Include="NavIcons\Hub.png" />
+    <Resource Include="NavIcons\Logout.png" />
+    <Resource Include="NavIcons\Messages.png" />
+    <Resource Include="NavIcons\Search.png" />
+    <Resource Include="NavIcons\Settings.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

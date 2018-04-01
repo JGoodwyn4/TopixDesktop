@@ -66,7 +66,7 @@ namespace TopixApp
 
 
                 // Add user info to list
-                info.Add(new UserInfo(userID, "FirstName LastName", AppDomain.CurrentDomain.BaseDirectory + @"/Placeholder Images/profile.png"));
+                info.Add(new UserInfo(userID, "FirstName LastName", @"/Placeholder Images/profile.png"));
             }
 
             return info;

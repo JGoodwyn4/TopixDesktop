@@ -170,5 +170,8 @@
   <ItemGroup>
     <Resource Include="Placeholder Images\profile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Placeholder Images\ratioTest.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

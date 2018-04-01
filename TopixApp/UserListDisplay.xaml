@@ -7,14 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
 
-    <ItemsControl Name="UserDisplay" ItemsSource="{Binding}" Background="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+    <ItemsControl Name="UserDisplay" ItemsSource="{Binding}" Background="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Button Height="60" Margin="0,5" Click="UserButton_Click" Tag="{Binding Path=ID}">
-                    <DockPanel>
+                <Button Height="60" Click="UserButton_Click" Tag="{Binding Path=ID}" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                    <DockPanel Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                         <Image DockPanel.Dock="Left" Source="{Binding Path=Image}"/>
-                        <Label DockPanel.Dock="Right" Content="&#57367;" FontFamily="Segoe UI Symbol" FontSize="18" Margin="0,0,40,0" VerticalContentAlignment="Center"/>
-                        <Label Content="{Binding Path=Name}" FontSize="24" Margin="25,0,0,0" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" VerticalContentAlignment="Center"/>
+                        <Label DockPanel.Dock="Right" Content="&#57367;" FontFamily="Segoe UI Symbol" FontSize="18" Margin="0,0,30,0" VerticalContentAlignment="Center"/>
+                        <Label Content="{Binding Path=Name}" FontSize="24" Margin="25,0,0,0" VerticalContentAlignment="Center"/>
                     </DockPanel>
                 </Button>
             </DataTemplate>

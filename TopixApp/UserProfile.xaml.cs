@@ -20,9 +20,29 @@ namespace TopixApp
     /// </summary>
     public partial class UserProfile : Page
     {
+        private bool isLoggedInUser;
+
+        // Will change parameters to accept a userID and reference to parent window (so we can change the current page and do other methods in main class)
         public UserProfile()
         {
+            // Placeholder variables
+            int profileID = 0;
+            int userID = 0; // Will get current logged in userID from the parent window reference
+
+            // Obtain information from database/server/data file using correlated userID
+
             InitializeComponent();
+
+            // Change what the profile button displays and keep track if logged in user
+            if(isLoggedInUser = profileID == userID)
+                ProfileButton.Content = "Edit Profile";
+            else
+                ProfileButton.Content = "Follow";
+
+            // Initialize all usercontrols
+            UserTopixList.Content = new TopicListDisplay(new List<int>(), null); // Use list of topicID's received from database info
+            UserFriendList.Content = new UserListDisplay(new List<int>(), null); // Use list of userID's received from database info
+            UserEventList.Content = new EventListDisplay(new List<int>(), 0, null); // Use list of eventID's received from database info
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)

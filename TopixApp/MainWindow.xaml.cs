@@ -21,11 +21,15 @@ namespace TopixApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int currentUserID;
+
         public MainWindow()
         {
+            currentUserID = 0;
+
             InitializeComponent();
 
-            ContentDisplay.Content = new UserProfile();
+            ContentDisplay.Content = new UserProfile(1,this);
         }
 
         private void OpenMenu_Click(object sender, RoutedEventArgs e)
@@ -40,7 +44,8 @@ namespace TopixApp
 
         private void ProfileNav_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentDisplay.Content = new UserProfile(currentUserID,this);
+            CloseMenu_Click(null,null);
         }
 
         private void HubNav_Click(object sender, RoutedEventArgs e)
@@ -95,6 +100,11 @@ namespace TopixApp
                 OpenButton.Visibility = Visibility.Visible;
                 CloseButton.Visibility = Visibility.Hidden;
             }
+        }
+
+        public int GetCurrentUserID()
+        {
+            return currentUserID;
         }
     }
 }

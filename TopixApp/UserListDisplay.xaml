@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
 
-    <ItemsControl Name="UserDisplay" ItemsSource="{Binding}" Background="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <ItemsControl Name="UserDisplay" ItemsSource="{Binding Mode=OneTime}" Background="White">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <Button Height="60" Click="UserButton_Click" Tag="{Binding Path=ID}" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">

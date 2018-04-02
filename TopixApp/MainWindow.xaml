@@ -109,7 +109,7 @@
             <Button Name="CloseButton" Grid.Column="1" Content="&#57366;" FontFamily="Segoe UI Symbol" FontSize="14" Background="#999999" Click="CloseMenu_Click" Visibility="Hidden"/>
         </Grid>
 
-        <Frame x:Name="ContentDisplay" Margin="20,0,0,0" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="ContentDisplay" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>

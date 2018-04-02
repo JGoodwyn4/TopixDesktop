@@ -53,7 +53,7 @@ namespace TopixApp
             int topicID = (int)((System.Windows.Controls.Button)sender).Tag;
 
             // Set the main window display to the chosen user profile
-            mainWindow.ContentDisplay.Content = new TopicProfile();
+            mainWindow.ContentDisplay.Content = new TopicProfile(topicID, mainWindow);
         }
 
         private List<TopicInfo> LoadTopicInfo(List<int> topicList)
@@ -66,7 +66,7 @@ namespace TopixApp
 
 
                 // Add topic info to list
-                info.Add(new TopicInfo(topicID, "Topic Name", @"/Placeholder Images/profile.png"));
+                info.Add(new TopicInfo(topicID, "Topic #" + topicID, @"/Placeholder Images/profile.png"));
             }
 
             return info;

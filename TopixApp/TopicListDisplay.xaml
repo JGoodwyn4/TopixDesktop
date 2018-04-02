@@ -7,14 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
     
-    <ItemsControl Name="TopicDisplay" ItemsSource="{Binding}" Background="White" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <ItemsControl Name="TopicDisplay" ItemsSource="{Binding Mode=OneTime}" Background="White">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Button Height="60" Margin="0,5" Click="TopicButton_Click" Tag="{Binding Path=ID}" Background="LightGray">
+                <Button Height="60" Margin="0,5" Click="TopicButton_Click" Tag="{Binding Path=ID}" Background="DarkGray" BorderThickness="0">
                     <DockPanel Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                         <Label DockPanel.Dock="Right" Content="&#57367;" FontFamily="Segoe UI Symbol" FontSize="18" Margin="0,0,30,0" VerticalContentAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                            <Image Source="{Binding Path=Icon}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Source="{Binding Path=Icon}"/>
                             <Label Content="{Binding Path=Name}" FontSize="24" Margin="50,0,0,0" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </DockPanel>

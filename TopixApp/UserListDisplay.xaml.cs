@@ -53,7 +53,7 @@ namespace TopixApp
             int userID = (int)((System.Windows.Controls.Button)sender).Tag;
 
             // Set the main window display to the chosen user profile
-            mainWindow.ContentDisplay.Content = new UserProfile();
+            mainWindow.ContentDisplay.Content = new UserProfile(userID,mainWindow);
         }
 
         private List<UserInfo> LoadUserInfo(List<int> userList)
@@ -66,7 +66,7 @@ namespace TopixApp
 
 
                 // Add user info to list
-                info.Add(new UserInfo(userID, "FirstName LastName", @"/Placeholder Images/profile.png"));
+                info.Add(new UserInfo(userID, "User #" + userID, @"/Placeholder Images/profile.png"));
             }
 
             return info;

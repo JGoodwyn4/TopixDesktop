@@ -70,7 +70,7 @@ namespace TopixApp
                 // Figure out way to change RSVP/Cancel button appropriately
 
                 // Add topic info to list
-                info.Add(new EventInfo(eventID, "Event Name", @"/Placeholder Images/ratioTest.png", 50));
+                info.Add(new EventInfo(eventID, "Event #" + eventID, @"/Placeholder Images/ratioTest.jpg", 50));
             }
 
             return info;

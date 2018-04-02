@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="900">
 
-    <ItemsControl Name="EventsDisplay" ItemsSource="{Binding}" Background="#595959" VerticalContentAlignment="Center" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+    <ItemsControl Name="EventsDisplay" ItemsSource="{Binding Mode=OneTime}" Background="#595959">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal"/>
@@ -36,8 +36,8 @@
                         <Label Grid.Row="2" Content="{Binding Path=RSVP}" Margin="10,0,0,0"/>
 
                         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10,5,0,5">
-                            <Button Content="Info" Background="#6aa84f" Foreground="White" FontSize="14" Padding="2" Width="75" Tag="{Binding Path=ID}" Click="EventInfo_Click" />
-                            <Button Content="RSVP" Background="#e06666" Foreground="White" FontSize="14" Padding="2" Width="75" Margin="20,0,0,0" Tag="{Binding Path=ID}" Click="EventRSVP_Click"/>
+                            <Button Content="Info" Background="#6aa84f" Foreground="White" FontSize="14" Padding="2" Width="75" Tag="{Binding Path=ID}" Click="EventInfo_Click" BorderThickness="0"/>
+                            <Button Content="RSVP" Background="#e06666" Foreground="White" FontSize="14" Padding="2" Width="75" Margin="20,0,0,0" Tag="{Binding Path=ID}" Click="EventRSVP_Click" BorderThickness="0"/>
                         </StackPanel>
 
                     </Grid>

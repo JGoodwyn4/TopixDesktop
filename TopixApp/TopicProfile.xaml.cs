@@ -20,9 +20,27 @@ namespace TopixApp
     /// </summary>
     public partial class TopicProfile : Page
     {
-        public TopicProfile()
+        private MainWindow mainWindow;
+        private int userID;
+        private int topicID;
+
+        public TopicProfile(int tID, MainWindow mainWin)
         {
+            mainWindow = mainWin;
+            userID = mainWindow.GetCurrentUserID();
+            topicID = tID;
+
             InitializeComponent();
+
+            TopicName.Content = "Topic #" + topicID;
+
+            TopicFollowerList.Content = new UserListDisplay(new List<int>(){0,1,2,3,4,5,6,7,8,9,10,11,12}, mainWindow); // Use list of userID's received from database info
+            TopicEventList.Content = new EventListDisplay(new List<int>(){0,1,2,3,4}, userID, mainWindow); // Use list of eventID's received from database info
+        }
+
+        private void TopicButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

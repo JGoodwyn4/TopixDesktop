@@ -26,13 +26,13 @@ namespace TopixApp
         {
             public int ID { get; set; }
             public string Name { get; set; }
-            public string Image { get; set; } // Will most likely want to change to a BitmapImage. Depends on how we read image info from server/etc.
+            public string Icon { get; set; } // Will most likely want to change to a BitmapImage. Depends on how we read image info from server/etc.
 
-            public TopicInfo(int topicID, string topicName, string topicImage)
+            public TopicInfo(int topicID, string topicName, string topicIcon)
             {
                 ID = topicID;
                 Name = topicName;
-                Image = topicImage;
+                Icon = topicIcon;
             }
         };
 

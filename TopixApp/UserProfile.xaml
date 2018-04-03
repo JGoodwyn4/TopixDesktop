@@ -12,8 +12,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition MinHeight="325" MaxHeight="500" Height="3*"/>
-                <RowDefinition MinHeight="400" Height="2*"/>
+                <RowDefinition Height="325"/> <!-- For now, using specific heights becuase scrollviewer wan't being bound by parent container. Will change once I get scrollviewer working the way I want -->
+                <RowDefinition Height="400"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="#9f73af">
@@ -57,50 +57,41 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        
-                        <Label Grid.Row="0" Content="Topix" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <DockPanel>
+                        <Label DockPanel.Dock="Top" Content="Topix" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                        <!-- Contains TopicListDisplay UserControl -->
-                        <ContentControl Grid.Row="1" x:Name="UserTopixList" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
-                    </Grid>
+                        <ScrollViewer Height="275">
+                            <!-- Contains TopicListDisplay UserControl VerticalScrollBarVisibility="Hidden" -->
+                            <ContentControl x:Name="UserTopixList"/>
+                        </ScrollViewer>
+                    </DockPanel>
                 </Border>
 
                 <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1,0,0,0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        
-                        <Label Grid.Row="0" Content="Friends" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <DockPanel>
+                        <Label DockPanel.Dock="Top" Content="Friends" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                        <!-- Contains UserListDisplay UserControl -->
-                        <ContentControl Grid.Row="1" x:Name="UserFriendList" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
-                    </Grid>
+                        <ScrollViewer Height="275">
+                            <!-- Contains UserListDisplay UserControl VerticalScrollBarVisibility="Hidden" -->
+                            <ContentControl x:Name="UserFriendList"/>
+                        </ScrollViewer>
+                    </DockPanel>
                 </Border>
                 
             </Grid>
 
             <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0,4,0,0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <Label DockPanel.Dock="Top" Content="Events" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                    <Label Grid.Column="0" Grid.Row="0" Content="Events" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-
-                     <!-- Contains EventListDisplay UserControl -->
-                    <ContentControl Grid.Column="0" Grid.Row="1" x:Name="UserEventList" ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
-                </Grid>
+                    <Grid>
+                        <ScrollViewer Height="350" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                            <!-- Contains EventListDisplay UserControl -->
+                            <ContentControl x:Name="UserEventList"/>
+                        </ScrollViewer>
+                    </Grid>
+                    
+                </DockPanel>
             </Border>
         </Grid>
     </ScrollViewer>

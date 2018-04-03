@@ -89,6 +89,7 @@
     <Compile Include="EventListDisplay.xaml.cs">
       <DependentUpon>EventListDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GlobalMethodResource.cs" />
     <Compile Include="TopicListDisplay.xaml.cs">
       <DependentUpon>TopicListDisplay.xaml</DependentUpon>
     </Compile>

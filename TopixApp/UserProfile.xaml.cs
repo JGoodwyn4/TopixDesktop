@@ -44,7 +44,7 @@ namespace TopixApp
 
             // Initialize all usercontrols
             UserTopixList.Content = new TopicListDisplay(new List<int>(){0,1,2,3,4,5,6}, mainWindow); // Use list of topicID's received from database info
-            UserFriendList.Content = new UserListDisplay(new List<int>(){0,1,2,3,4,5,6,7,8,9,10,11,12}, mainWindow); // Use list of userID's received from database info
+            UserFriendList.Content = new UserListDisplay(new List<int>(){0,1,2,3,4,5}, mainWindow); // Use list of userID's received from database info
             UserEventList.Content = new EventListDisplay(new List<int>(){0,1,2,3,4}, profileID, mainWindow); // Use list of eventID's received from database info
         }
 
@@ -58,6 +58,11 @@ namespace TopixApp
             {
                 // Follow friend/user use case stuff
             }
+        }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            GlobalMethodResource.HorizontalScrollEvent(sender,e);
         }
     }
 }

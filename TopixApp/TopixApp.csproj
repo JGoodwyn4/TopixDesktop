@@ -90,6 +90,9 @@
       <DependentUpon>EventListDisplay.xaml</DependentUpon>
     </Compile>
     <Compile Include="GlobalMethodResource.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TopicListDisplay.xaml.cs">
       <DependentUpon>TopicListDisplay.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EventListDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,6 +187,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Placeholder Images\ratioTest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Event Images\" />
+    <Folder Include="Profile Images\" />
+    <Folder Include="Topic Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -85,7 +85,7 @@
                     <Label DockPanel.Dock="Top" Content="Events" Height="50" Background="#7e7e7e" Foreground="#d9d9d9" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
                     <Grid>
-                        <ScrollViewer Height="350" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                        <ScrollViewer Height="350" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                             <!-- Contains EventListDisplay UserControl -->
                             <ContentControl x:Name="UserEventList"/>
                         </ScrollViewer>

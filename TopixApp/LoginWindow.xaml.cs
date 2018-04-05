@@ -31,7 +31,20 @@ namespace TopixApp
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            // Check for username/email and password in database/files/etc.
 
+            bool answer = true;
+
+            if(answer)
+            {
+                this.DialogResult = true;
+                this.Close();
+            }
+            else
+            {
+                // Display or state a warning to user
+                
+            }
         }
     }
 }

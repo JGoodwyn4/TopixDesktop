@@ -28,13 +28,14 @@ namespace TopixApp
         public UserProfile(int userProfileID, MainWindow mainWin)
         {
             mainWindow = mainWin;
-
+            
             // Obtain information from database/server/data file using correlated userID
+            User userInfo = mainWindow.GetConnection().GetUserInfo(userProfileID);
 
             InitializeComponent();
 
             profileID = userProfileID;
-            UserName.Content = "User #" + profileID;
+            UserName.Content = userInfo.GetFullName();
 
             // Change what the profile button displays and keep track if logged in user
             if(isLoggedInUser = profileID == mainWindow.GetCurrentUserID())
@@ -43,8 +44,8 @@ namespace TopixApp
                 ProfileButton.Content = "Follow";
 
             // Initialize all usercontrols
-            UserTopixList.Content = new TopicListDisplay(new List<int>(){0,1,2,3,4,5,6}, mainWindow); // Use list of topicID's received from database info
-            UserFriendList.Content = new UserListDisplay(new List<int>(){0,1,2,3,4,5}, mainWindow); // Use list of userID's received from database info
+            UserTopixList.Content = new TopicListDisplay(new List<int>(){0,1,2,3,4,5,6,7}, mainWindow); // Use list of topicID's received from database info
+            UserFriendList.Content = new UserListDisplay(new List<int>(){0,1,2}, mainWindow); // Use list of userID's received from database info
             UserEventList.Content = new EventListDisplay(new List<int>(){0,1,2,3,4}, profileID, mainWindow); // Use list of eventID's received from database info
         }
 

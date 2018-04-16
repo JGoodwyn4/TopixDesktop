@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace TopixApp
 {
@@ -22,14 +23,21 @@ namespace TopixApp
     public partial class MainWindow : Window
     {
         private int currentUserID;
+        private DBConnect dbConnect;
 
         public MainWindow()
         {
             currentUserID = 0;
+            dbConnect = new DBConnect();
 
             InitializeComponent();
 
             ContentDisplay.Content = new UserProfile(1,this);
+        }
+
+        public DBConnect GetConnection()
+        {
+            return dbConnect;
         }
 
         private void OpenMenu_Click(object sender, RoutedEventArgs e)

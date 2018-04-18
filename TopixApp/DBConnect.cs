@@ -41,15 +41,13 @@ namespace TopixApp
                     {
                         while(reader.Read())
                         {
+                            user.firstName = reader.GetString(reader.GetOrdinal("FirstName"));
+
                             // Only recording index for nullable values to avoid calling GetOrdinal multiple times
                             // Normally will use GetOrdinal within reader.GetString(x), etc.
-                            int firstNameIndex = reader.GetOrdinal("FirstName");
                             int lastNameIndex = reader.GetOrdinal("LastName");
                             
                             // For nullable columns, check if null
-                            if(!reader.IsDBNull(firstNameIndex))
-                                user.firstName = reader.GetString(firstNameIndex);
-
                             if(!reader.IsDBNull(lastNameIndex))
                                 user.lastName = reader.GetString(lastNameIndex);
                         }

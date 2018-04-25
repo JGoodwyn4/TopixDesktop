@@ -20,7 +20,7 @@ namespace TopixApp
         public void StartConnection()
         {
             // Will need to change the Attach DbFilename to dynamically select the database security file in "..\TopixApp\TopixApp\"
-            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\John\Desktop\TopixApp\TopixApp\TopixDatabase.mdf;Integrated Security=True");
+            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Syihan\Google Drive\West Virginia University\'17 - '18 Senior Year\CS 430 - Advanced Software Engineering\TopixDesktop\TopixApp\TopixDatabase.mdf;Integrated Security=True");
         }
 
         public void CloseConnection()
@@ -46,10 +46,13 @@ namespace TopixApp
                             // Only recording index for nullable values to avoid calling GetOrdinal multiple times
                             // Normally will use GetOrdinal within reader.GetString(x), etc.
                             int lastNameIndex = reader.GetOrdinal("LastName");
+                            int userBio = reader.GetOrdinal("Bio");
                             
                             // For nullable columns, check if null
                             if(!reader.IsDBNull(lastNameIndex))
                                 user.lastName = reader.GetString(lastNameIndex);
+                            if (!reader.IsDBNull(userBio))
+                                user.bio = reader.GetString(userBio);
                         }
                     }
                 }

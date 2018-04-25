@@ -16,13 +16,19 @@
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-275,0,0,0" AccelerationRatio="0.9" Duration="0:0:1"/>
         </Storyboard>
     </Window.Resources>
-    
-    <Grid>
 
-        <Grid Name="navBar" Panel.ZIndex="1000" Margin="-275,0,0,0">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="937*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Name="navBar" Panel.ZIndex="1000" Margin="-275,0,-0.4,0.4" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="275"/> <!-- Menu width. Equal to navigation margin size -->
-                <ColumnDefinition Width="20"/> <!-- Button width. Equal to frame margin size -->
+                <ColumnDefinition Width="275"/>
+                <!-- Menu width. Equal to navigation margin size -->
+                <ColumnDefinition Width="20"/>
+                <!-- Button width. Equal to frame margin size -->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -103,13 +109,13 @@
                 </Grid>
 
             </DockPanel>
-            
+
             <!-- Open/Close Menu Buttons -->
             <Button Name="OpenButton" Grid.Column="1" Content="&#57367;" FontFamily="Segoe UI Symbol" FontSize="14" Background="#999999" Click="OpenMenu_Click"/>
             <Button Name="CloseButton" Grid.Column="1" Content="&#57366;" FontFamily="Segoe UI Symbol" FontSize="14" Background="#999999" Click="CloseMenu_Click" Visibility="Hidden"/>
         </Grid>
 
-        <Frame x:Name="ContentDisplay" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="ContentDisplay" Margin="20,0,-0.4,0.4" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

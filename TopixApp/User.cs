@@ -11,6 +11,7 @@ namespace TopixApp
         // Set up all data contained in a user object
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public string bio { get; set; }
         //public string location{ get; set; }
         //public List<int> friendList { get; set; }
         //public List<int> topicList { get; set; }
@@ -21,6 +22,7 @@ namespace TopixApp
             // Initialize all values to empty/default
             firstName = string.Empty;
             lastName = string.Empty;
+            bio = string.Empty;
         }
 
         public string GetFullName()

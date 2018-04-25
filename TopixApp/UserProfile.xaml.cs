@@ -36,6 +36,7 @@ namespace TopixApp
 
             profileID = userProfileID;
             UserName.Content = userInfo.GetFullName();
+            BioBlock.Text = userInfo.bio;
 
             // Change what the profile button displays and keep track if logged in user
             if(isLoggedInUser = profileID == mainWindow.GetCurrentUserID())

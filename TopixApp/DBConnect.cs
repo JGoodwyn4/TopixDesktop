@@ -20,7 +20,8 @@ namespace TopixApp
         public void StartConnection()
         {
             // Will need to change the Attach DbFilename to dynamically select the database security file in "..\TopixApp\TopixApp\"
-            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Syihan\Google Drive\West Virginia University\'17 - '18 Senior Year\CS 430 - Advanced Software Engineering\TopixDesktop\TopixApp\TopixDatabase.mdf;Integrated Security=True");
+            // John Connection String = Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\John\Desktop\TopixApp\TopixApp\TopixDatabase.mdf;Integrated Security=True
+            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\John\Desktop\TopixApp\TopixApp\TopixDatabase.mdf;Integrated Security=True");
         }
 
         public void CloseConnection()
@@ -60,6 +61,27 @@ namespace TopixApp
             }
 
             return user;
+        }
+
+        public int LoginUser(string email, string password)
+        {
+            int userID = -1; // Default ID
+
+            using(SqlCommand cmd = new SqlCommand("SELECT Id FROM dbo.UserData WHERE Email = " + email + " AND Password = " + password, connection))
+            {
+                connection.Open();
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if(reader.HasRows)
+                    {
+                        reader.Read(); // Read entry
+                        userID = reader.GetInt32(reader.GetOrdinal("Id")); // Get data
+                    }
+                }
+                connection.Close();
+            }
+
+            return userID;
         }
     }
 }

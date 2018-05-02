@@ -35,6 +35,26 @@ namespace TopixApp
             ContentDisplay.Content = new UserProfile(1,this);
         }
 
+        private void Login()
+        {
+            this.Hide(); // Hide the main window
+
+            LoginWindow login = new LoginWindow(dbConnect);
+            if(login.ShowDialog() == true)
+            {
+                currentUserID = login.GetID(); // Get the ID stored in the login window
+            }
+            else
+            {
+                // Close the application, login did not return true (login only returns when logged in, account created, or window closed)
+                this.Close();
+                return; // I'm returning just in case
+            }
+
+
+            this.Show(); // Re-open the main window
+        }
+
         public DBConnect GetConnection()
         {
             return dbConnect;

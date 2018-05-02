@@ -32,7 +32,8 @@ namespace TopixApp
 
             InitializeComponent();
 
-            ContentDisplay.Content = new UserProfile(1,this);
+            Login();
+            ContentDisplay.Content = new UserProfile(currentUserID,this);
         }
 
         private void Login()

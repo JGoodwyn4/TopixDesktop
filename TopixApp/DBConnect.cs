@@ -33,7 +33,7 @@ namespace TopixApp
         {
             User user = new User();
 
-            using(SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.UserData WHERE Id = " + userID, connection))
+            using(SqlCommand cmd = new SqlCommand("SELECT Id, FirstName, LastName, Bio FROM dbo.UserData WHERE Id = " + userID, connection))
             {
                 connection.Open();
                 using(SqlDataReader reader = cmd.ExecuteReader())
@@ -42,7 +42,8 @@ namespace TopixApp
                     {
                         while(reader.Read())
                         {
-                            user.firstName = reader.GetString(reader.GetOrdinal("FirstName"));
+                            user.ID = reader.GetInt32(reader.GetOrdinal("Id"));
+                            user.Firstname = reader.GetString(reader.GetOrdinal("FirstName"));
 
                             // Only recording index for nullable values to avoid calling GetOrdinal multiple times
                             // Normally will use GetOrdinal within reader.GetString(x), etc.
@@ -51,9 +52,9 @@ namespace TopixApp
                             
                             // For nullable columns, check if null
                             if(!reader.IsDBNull(lastNameIndex))
-                                user.lastName = reader.GetString(lastNameIndex);
+                                user.Lastname = reader.GetString(lastNameIndex);
                             if (!reader.IsDBNull(userBio))
-                                user.bio = reader.GetString(userBio);
+                                user.Bio = reader.GetString(userBio);
                         }
                     }
                 }

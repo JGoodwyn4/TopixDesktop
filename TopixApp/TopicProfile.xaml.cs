@@ -23,6 +23,8 @@ namespace TopixApp
         private MainWindow mainWindow;
         private int userID;
         private int topicID;
+        private List<User> followers;
+        //private List<Event> events;
 
         public TopicProfile(int tID, MainWindow mainWin)
         {

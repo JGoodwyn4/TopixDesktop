@@ -109,6 +109,7 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Topic.cs" />
     <Compile Include="TopicListDisplay.xaml.cs">
       <DependentUpon>TopicListDisplay.xaml</DependentUpon>
     </Compile>

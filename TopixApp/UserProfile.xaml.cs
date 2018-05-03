@@ -38,10 +38,10 @@ namespace TopixApp
             UserName.Content = userInfo.GetFullName();
             
             // Collapse bio section if no bio is found
-            if(userInfo.bio == string.Empty)
+            if(userInfo.Bio == string.Empty)
                 BioBlock.Visibility = Visibility.Collapsed;
             else
-                BioBlock.Text = userInfo.bio;
+                BioBlock.Text = userInfo.Bio;
 
             // Change what the profile button displays and keep track if logged in user
             if(isLoggedInUser = profileID == mainWindow.GetCurrentUserID())

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace TopixApp
 {
@@ -31,6 +32,26 @@ namespace TopixApp
             }
 
             e.Handled = true;
+        }
+
+        public static void SaveAvatar(string imagePath, int userID)
+        {
+            BitmapImage avatar = new BitmapImage();
+            avatar.BeginInit();
+
+            avatar.DecodePixelHeight = 125;
+            avatar.DecodePixelWidth = 125;
+            avatar.UriSource = new Uri(imagePath);
+            
+            avatar.EndInit();
+
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(avatar));
+
+            using (var fileStream = new System.IO.FileStream(@"\Profile Images\" + userID + ".png", System.IO.FileMode.Create))
+            {
+                encoder.Save(fileStream);
+            }
         }
 
     }

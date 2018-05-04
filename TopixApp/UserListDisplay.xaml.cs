@@ -22,21 +22,7 @@ namespace TopixApp
     {
         private MainWindow mainWindow;
 
-        private struct UserInfo
-        {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string Image { get; set; } // Will probably want to change to a BitmapImage
-
-            public UserInfo(int userID, string userName, string userImage)
-            {
-                ID = userID;
-                Name = userName;
-                Image = userImage;
-            }
-        };
-
-        public UserListDisplay(List<int> userList, MainWindow mainWin)
+        public UserListDisplay(List<User> userList, MainWindow mainWin)
         {
             // Save instance of the main window
             mainWindow = mainWin;
@@ -44,7 +30,10 @@ namespace TopixApp
             InitializeComponent();
 
             // Load the user items into the ItemsControl
-            UserDisplay.ItemsSource = LoadUserInfo(userList);
+            UserDisplay.ItemsSource = userList;
+
+            if(userList.Count == 0)
+                NoneFound.Visibility = Visibility.Visible;
         }
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
@@ -53,23 +42,7 @@ namespace TopixApp
             int userID = (int)((System.Windows.Controls.Button)sender).Tag;
 
             // Set the main window display to the chosen user profile
-            mainWindow.ContentDisplay.Content = new UserProfile(userID,mainWindow);
-        }
-
-        private List<UserInfo> LoadUserInfo(List<int> userList)
-        {
-            List<UserInfo> info = new List<UserInfo>();
-
-            foreach(int userID in userList)
-            {
-                // Get user info from database/server/etc
-
-
-                // Add user info to list
-                info.Add(new UserInfo(userID, "User #" + userID, @"/Placeholder Images/profile.png"));
-            }
-
-            return info;
+            mainWindow.ContentDisplay.Content = new UserProfile(userID, mainWindow);
         }
     }
 }

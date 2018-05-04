@@ -22,21 +22,7 @@ namespace TopixApp
     {
         private MainWindow mainWindow;
 
-        private struct TopicInfo
-        {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string Icon { get; set; } // Will most likely want to change to a BitmapImage. Depends on how we read image info from server/etc.
-
-            public TopicInfo(int topicID, string topicName, string topicIcon)
-            {
-                ID = topicID;
-                Name = topicName;
-                Icon = topicIcon;
-            }
-        };
-
-        public TopicListDisplay(List<int> topicList, MainWindow mainWin)
+        public TopicListDisplay(List<Topic> topicList, MainWindow mainWin)
         {
             // Save instance of the main window
             mainWindow = mainWin;
@@ -44,7 +30,10 @@ namespace TopixApp
             InitializeComponent();
 
             // Load the user items into the ItemsControl
-            TopicDisplay.ItemsSource = LoadTopicInfo(topicList);
+            TopicDisplay.ItemsSource = topicList;
+
+            if(topicList.Count == 0)
+                NoneFound.Visibility = Visibility.Visible;
         }
 
         private void TopicButton_Click(object sender, RoutedEventArgs e)
@@ -54,22 +43,6 @@ namespace TopixApp
 
             // Set the main window display to the chosen user profile
             mainWindow.ContentDisplay.Content = new TopicProfile(topicID, mainWindow);
-        }
-
-        private List<TopicInfo> LoadTopicInfo(List<int> topicList)
-        {
-            List<TopicInfo> info = new List<TopicInfo>();
-
-            foreach(int topicID in topicList)
-            {
-                // Get topic info from database/server/etc
-
-
-                // Add topic info to list
-                info.Add(new TopicInfo(topicID, "Topic #" + topicID, @"/Placeholder Images/profile.png"));
-            }
-
-            return info;
         }
     }
 }

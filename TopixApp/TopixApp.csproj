@@ -215,8 +215,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Event Images\" />
-    <Folder Include="Profile Images\" />
-    <Folder Include="Topic Images\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -231,6 +229,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Profile Images\0.png" />
+    <Resource Include="Profile Images\1.png" />
+    <Resource Include="Profile Images\2.png" />
+    <Resource Include="Topic Images\0.png" />
+    <Resource Include="Topic Images\1.png" />
+    <Resource Include="Topic Images\2.png" />
+    <Resource Include="Topic Images\3.png" />
+    <Resource Include="Topic Images\4.png" />
+    <Resource Include="Topic Images\5.png" />
+    <Resource Include="Topic Images\6.png" />
+    <Resource Include="Topic Images\7.png" />
     <Content Include="TopixDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

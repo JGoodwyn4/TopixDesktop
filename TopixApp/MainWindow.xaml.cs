@@ -33,6 +33,7 @@ namespace TopixApp
             InitializeComponent();
 
             Login();
+            ProfileTabImage.Source = new BitmapImage(new Uri(@"\Profile Images\" + currentUserID + ".png"));
             ContentDisplay.Content = new UserProfile(currentUserID,this);
         }
 
@@ -109,7 +110,11 @@ namespace TopixApp
 
         private void LogoutNav_Click(object sender, RoutedEventArgs e)
         {
+            Login();
+            CloseMenu_Click(null,null);
 
+            ProfileTabImage.Source = new BitmapImage(new Uri(@"\Profile Images\" + currentUserID + ".png"));
+            ContentDisplay.Content = new UserProfile(currentUserID,this);
         }
 
         private void ToggleMenu(string sbType)

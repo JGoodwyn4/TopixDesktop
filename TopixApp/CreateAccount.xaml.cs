@@ -44,7 +44,7 @@ namespace TopixApp
                     newUserID = dbConnect.CreateUser(FirstNameInput.Text, LastNameInput.Text, EmailInput.Text, PasswordInput.Text, StateInput.Text, CityInput.Text, BioInput.Text);
 
                     // Save default icon image to Profile Images (size 125x125)
-                    // 
+                    GlobalMethodResource.SaveAvatar(@"\Placeholder Images\profile.png",newUserID);
 
                     this.DialogResult = true; // Set result of window to true
                     this.Close();

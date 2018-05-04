@@ -11,7 +11,7 @@ namespace TopixApp
         public int ID { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
-
+        public string Image { get { return @"\Topic Images\" + ID + ".png"; } }
 
         public Topic()
         {

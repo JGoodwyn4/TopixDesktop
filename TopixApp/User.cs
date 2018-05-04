@@ -16,6 +16,9 @@ namespace TopixApp
         public string State{ get; set; }
         public string City { get; set; }
         public string Email { get; set; }
+        public string Image { get { return @"\Profile Images\" + ID + ".png"; } }
+        public string FullName { get { return GetFullName(); } }
+
 
         public User()
         {

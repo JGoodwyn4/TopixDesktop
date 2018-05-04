@@ -23,7 +23,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Welcome to Topix!" FontSize="38" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="0" Content="Welcome to Topix!" FontSize="38" Foreground="White" HorizontalContentAlignment="Center"/>
 
         <!-- First and Last Name -->
         <Grid Grid.Row="2" Margin="60,5">
@@ -85,7 +85,7 @@
         </Border>
 
         <Label Grid.Row="8" Content="Bio:" Margin="60,5,60,0"/>
-        <TextBox Grid.Row="9" MinHeight="50" Margin="60,0,60,5"/>
+        <TextBox Name="BioInput" Grid.Row="9" MinHeight="50" Margin="60,0,60,5" TextWrapping="Wrap"/>
 
         <Grid Grid.Row="11" Margin="60,0,60,20">
             <Grid.ColumnDefinitions>
@@ -94,9 +94,9 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Name="CancelButton" Grid.Column="0" Content="Cancel" FontSize="16" Padding="10"/>
+            <Button Name="CancelButton" Grid.Column="0" Content="Cancel" FontSize="16" Padding="10" Click="CancelButton_Click"/>
 
-            <Button Name="CreateButton" Grid.Column="2" Content="Create Account >" FontSize="16" Padding="10"/>
+            <Button Name="CreateButton" Grid.Column="2" Content="Create Account >" FontSize="16" Padding="10" Click="CreateButton_Click"/>
         </Grid>
         
     </Grid>

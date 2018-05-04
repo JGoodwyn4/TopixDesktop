@@ -33,16 +33,13 @@ namespace TopixApp
         private void NewAccountButton_Click(object sender, RoutedEventArgs e)
         {
             // Open a new account window
-
+            CreateAccount createAccount = new CreateAccount(dbConnect);
 
             // If the create account window returns true, get the userID created from the database
-            if(true)
+            if(createAccount.ShowDialog() == true)
             {
-                // Will get these values from the create account window, I just put these here so I can have the structure down
-                string email = "";
-                string password = "";
+                userID = createAccount.newUserID; // Get the user ID from the create account window
 
-                userID = dbConnect.LoginUser(email,password);
                 this.DialogResult = true; // Set the login result to be true
                 this.Close(); // Automatically close the login window
             }

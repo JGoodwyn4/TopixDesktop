@@ -14,7 +14,8 @@ namespace TopixApp
         public string Lastname { get; set; }
         public string Bio { get; set; }
         public string State{ get; set; }
-        public string City{ get; set; }
+        public string City { get; set; }
+        public string Email { get; set; }
 
         public User()
         {
@@ -23,6 +24,9 @@ namespace TopixApp
             Firstname = string.Empty;
             Lastname = string.Empty;
             Bio = string.Empty;
+            State = string.Empty;
+            City = string.Empty;
+            Email = string.Empty;
         }
 
         public string GetFullName()

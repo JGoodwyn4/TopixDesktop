@@ -11,7 +11,7 @@ namespace TopixApp
         public int ID { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
-        public string Image { get { return @"TopixApp\Topic Images\" + ID + ".png"; } }
+        public string Image { get { return GlobalMethodResource.ProjectDirectory + @"\Topic Images\" + ID + ".png"; } }
 
         public Topic()
         {

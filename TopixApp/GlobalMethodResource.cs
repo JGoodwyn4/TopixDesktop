@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace TopixApp
 {
@@ -13,6 +15,7 @@ namespace TopixApp
 
     public class GlobalMethodResource
     {
+        public static string ProjectDirectory = Directory.GetParent(Application.StartupPath).Parent.FullName;
 
         public static void HorizontalScrollEvent(object sender, MouseWheelEventArgs e)
         {

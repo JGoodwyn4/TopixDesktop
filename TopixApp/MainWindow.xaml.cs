@@ -113,7 +113,7 @@ namespace TopixApp
             Login();
             CloseMenu_Click(null,null);
 
-            ProfileTabImage.Source = new BitmapImage(new Uri(@"\Profile Images\" + currentUserID + ".png"));
+            ProfileTabImage.Source = new BitmapImage(new Uri(GlobalMethodResource.ProjectDirectory + @"\Profile Images\" + currentUserID + ".png"));
             ContentDisplay.Content = new UserProfile(currentUserID,this);
         }
 

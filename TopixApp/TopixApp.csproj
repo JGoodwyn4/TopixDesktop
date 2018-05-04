@@ -241,6 +241,7 @@
     <Resource Include="Topic Images\5.png" />
     <Resource Include="Topic Images\6.png" />
     <Resource Include="Topic Images\7.png" />
+    <Resource Include="Profile Images\3.png" />
     <Content Include="TopixDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

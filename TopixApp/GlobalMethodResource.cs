@@ -51,7 +51,7 @@ namespace TopixApp
             BitmapEncoder encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(avatar));
 
-            using (var fileStream = new System.IO.FileStream(@"\Profile Images\" + userID + ".png", System.IO.FileMode.Create))
+            using (var fileStream = new System.IO.FileStream(GlobalMethodResource.ProjectDirectory + @"\Profile Images\" + userID + ".png", System.IO.FileMode.Create))
             {
                 encoder.Save(fileStream);
             }

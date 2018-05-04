@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace TopixApp
 {
@@ -33,7 +34,7 @@ namespace TopixApp
             InitializeComponent();
 
             Login();
-            ProfileTabImage.Source = new BitmapImage(new Uri(@"\Profile Images\" + currentUserID + ".png"));
+            ProfileTabImage.Source = new BitmapImage(new Uri(System.IO.Path.GetFullPath(@"TopixApp\Profile Images\" + currentUserID + ".png")));
             ContentDisplay.Content = new UserProfile(currentUserID,this);
         }
 

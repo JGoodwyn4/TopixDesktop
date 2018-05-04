@@ -21,7 +21,8 @@ namespace TopixApp
         {
             // Will need to change the Attach DbFilename to dynamically select the database security file in "..\TopixApp\TopixApp\"
             // John Connection String = Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\John\Desktop\TopixApp\TopixApp\TopixDatabase.mdf;Integrated Security=True
-            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ben\source\repos\TopixDesktop\TopixApp\TopixDatabase.mdf;Integrated Security=True");
+            // Syihan Connection String = Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Syihan\Google Drive\West Virginia University\'17 - '18 Senior Year\CS 430 - Advanced Software Engineering\TopixDesktop\TopixApp\TopixDatabase.mdf;Integrated Security=True
+            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Syihan\Google Drive\West Virginia University\'17 - '18 Senior Year\CS 430 - Advanced Software Engineering\TopixDesktop\TopixApp\TopixDatabase.mdf;Integrated Security=True");
         }
 
         public void CloseConnection()

@@ -39,7 +39,7 @@ namespace TopixApp
             profileID = userProfileID;
             UserName.Content = userInfo.GetFullName();
             
-            UserAvatar.Source = new BitmapImage(new Uri(userInfo.Image));
+            UserAvatar.Source = new BitmapImage(new Uri(System.IO.Path.GetFullPath(userInfo.Image)));
 
             // Collapse bio section if no bio is found
             if(userInfo.Bio == string.Empty)

@@ -38,7 +38,7 @@ namespace TopixApp
             InitializeComponent();
 
             TopicName.Content = topic.Name;
-            TopicAvatar.Source = new BitmapImage(new Uri(topic.Image));
+            TopicAvatar.Source = new BitmapImage(new Uri(System.IO.Path.GetFullPath(topic.Image)));
             TopicBio.Text = topic.Bio;
 
             List<User> followers = dbConnect.GetFollowers(topicID,userID);

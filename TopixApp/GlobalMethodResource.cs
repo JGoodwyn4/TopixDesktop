@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace TopixApp
 {
@@ -12,6 +15,7 @@ namespace TopixApp
 
     public class GlobalMethodResource
     {
+        public static string ProjectDirectory = Directory.GetParent(Application.StartupPath).Parent.FullName;
 
         public static void HorizontalScrollEvent(object sender, MouseWheelEventArgs e)
         {
@@ -31,6 +35,26 @@ namespace TopixApp
             }
 
             e.Handled = true;
+        }
+
+        public static void SaveAvatar(string imagePath, int userID)
+        {
+            BitmapImage avatar = new BitmapImage();
+            avatar.BeginInit();
+
+            avatar.DecodePixelHeight = 125;
+            avatar.DecodePixelWidth = 125;
+            avatar.UriSource = new Uri(imagePath);
+            
+            avatar.EndInit();
+
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(avatar));
+
+            using (var fileStream = new System.IO.FileStream(GlobalMethodResource.ProjectDirectory + @"\Profile Images\" + userID + ".png", System.IO.FileMode.Create))
+            {
+                encoder.Save(fileStream);
+            }
         }
 
     }

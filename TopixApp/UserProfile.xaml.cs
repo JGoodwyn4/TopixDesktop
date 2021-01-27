@@ -21,6 +21,7 @@ namespace TopixApp
     public partial class UserProfile : Page
     {
         private MainWindow mainWindow;
+        private DBConnect dbConnect;
         private int profileID;
         private bool isLoggedInUser;
 
@@ -28,25 +29,35 @@ namespace TopixApp
         public UserProfile(int userProfileID, MainWindow mainWin)
         {
             mainWindow = mainWin;
+            dbConnect = mainWindow.GetConnection();
             
             // Obtain information from database/server/data file using correlated userID
-            User userInfo = mainWindow.GetConnection().GetUserInfo(userProfileID);
+            User userInfo = dbConnect.GetUserInfo(userProfileID);
 
             InitializeComponent();
 
             profileID = userProfileID;
             UserName.Content = userInfo.GetFullName();
-            BioBlock.Text = userInfo.bio;
+            
+            UserAvatar.Source = new BitmapImage(new Uri(userInfo.Image));
+
+            // Collapse bio section if no bio is found
+            if(userInfo.Bio == string.Empty)
+                BioBlock.Visibility = Visibility.Collapsed;
+            else
+                BioBlock.Text = userInfo.Bio;
 
             // Change what the profile button displays and keep track if logged in user
             if(isLoggedInUser = profileID == mainWindow.GetCurrentUserID())
                 ProfileButton.Content = "Edit Profile";
+            else if(dbConnect.CheckFriends(mainWindow.GetCurrentUserID(), profileID))
+                ProfileButton.Content = "Unfollow";
             else
                 ProfileButton.Content = "Follow";
 
             // Initialize all usercontrols
-            UserTopixList.Content = new TopicListDisplay(new List<int>(){0,1,2,3,4,5,6,7}, mainWindow); // Use list of topicID's received from database info
-            UserFriendList.Content = new UserListDisplay(new List<int>(){0,1,2}, mainWindow); // Use list of userID's received from database info
+            UserTopixList.Content = new TopicListDisplay(dbConnect.GetTopics(profileID), mainWindow); // Use list of topicID's received from database info
+            UserFriendList.Content = new UserListDisplay(dbConnect.GetFriends(profileID), mainWindow); // Use list of userID's received from database info
             UserEventList.Content = new EventListDisplay(new List<int>(){0,1,2,3,4}, profileID, mainWindow); // Use list of eventID's received from database info
         }
 
@@ -56,9 +67,15 @@ namespace TopixApp
             {
                 // Open edit profile
             }
+            else if(ProfileButton.Content.Equals("Unfollow"))
+            {
+                dbConnect.RemoveFriend(mainWindow.GetCurrentUserID(),profileID);
+                ProfileButton.Content = "Follow";
+            }
             else
             {
-                // Follow friend/user use case stuff
+                dbConnect.AddFriend(mainWindow.GetCurrentUserID(),profileID);
+                ProfileButton.Content = "Unfollow";
             }
         }
 
